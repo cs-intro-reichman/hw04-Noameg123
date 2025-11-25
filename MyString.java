@@ -30,7 +30,6 @@ public class MyString {
             result[i] = c;
         }
     }
-
     return new String(result);
     }
     
@@ -39,16 +38,18 @@ public class MyString {
     public static boolean contains(String str1, String str2) {
     if (str2.length() == 0) return true; 
     if (str1.length() == 0 || str2.length() > str1.length()) return false;
-    for (int i = 0; i <= str1.length() - str2.length(); i++) {
+    String s1 = lowerCase(str1);
+    String s2 = lowerCase(str2);
+
+    for (int i = 0; i <= s1.length() - s2.length(); i++) {
         boolean match = true;
 
-        for (int j = 0; j < str2.length(); j++) {
-            if (str1.charAt(i + j) != str2.charAt(j)) {
+        for (int j = 0; j < s2.length(); j++) {
+            if (s1.charAt(i + j) != s2.charAt(j)) {
                 match = false;
                 break; 
             }
         }
-
         if (match) {
             return true;
         }
